@@ -1,0 +1,47 @@
+# Keil/MDK generated output directories
+**/Objects/
+**/Listings/
+
+# Compiler and linker artifacts
+*.o
+*.obj
+*.axf
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.crf
+*.__i
+*.lnp
+*.dep
+*.d
+*.iex
+*.sct
+*.build_log.htm
+
+# Keil generated reports and logs
+*.htm
+*.log
+script_err.txt
+script_out.txt
+vscode_build_log.txt
+
+# Per-user Keil configuration
+*.uvopt
+*.uvoptx
+*.uvgui.*
+*.uvguix.*
+
+# Local editor and IDE settings
+.vscode/
+
+# Temporary and operating-system files
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+JLinkLog.txt
