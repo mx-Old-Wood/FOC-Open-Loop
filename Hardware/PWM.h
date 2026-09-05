@@ -27,5 +27,6 @@ void PWM_OutputDisable(void);
 void PWM_SetCompare_CH1(uint16_t value);
 void PWM_SetCompare_CH2(uint16_t value);
 void PWM_SetCompare_CH3(uint16_t value);
+void PWM_SetCompareAll(uint16_t value);
 
 #endif

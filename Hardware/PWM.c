@@ -57,7 +57,7 @@ void PWM_Init(void)
     TIM_BDTRInitStructure.TIM_DeadTime = 100;                                                   // 插入上下桥死区；168MHz、CKD_DIV1时约为595ns
     TIM_BDTRInitStructure.TIM_Break = TIM_Break_Disable;                                        // 暂不使用BKIN硬件刹车输入
     TIM_BDTRInitStructure.TIM_BreakPolarity = TIM_BreakPolarity_High;                           // BKIN高电平有效；Break关闭时暂不起作用
-    TIM_BDTRInitStructure.TIM_AutomaticOutput = TIM_AutomaticOutput_Enable;                     // 故障解除后允许硬件自动恢复MOE
+    TIM_BDTRInitStructure.TIM_AutomaticOutput = TIM_AutomaticOutput_Disable;                    // 故障解除后允许硬件自动恢复MOE
     TIM_BDTRConfig(PWM_TIM, &TIM_BDTRInitStructure);                                            // 将死区、刹车及输出控制参数写入TIM1
 
     TIM_Cmd(PWM_TIM, ENABLE);
@@ -91,5 +91,14 @@ void PWM_SetCompare_CH3(uint16_t value)
 {
     if (value >= PWM_TIM_PERIOD)
         value = PWM_TIM_PERIOD - 1;
+    TIM_SetCompare3(PWM_TIM, value);
+}
+
+void PWM_SetCompareAll(uint16_t value)
+{
+    if (value >= PWM_TIM_PERIOD)
+        value = PWM_TIM_PERIOD - 1;
+    TIM_SetCompare1(PWM_TIM, value);
+    TIM_SetCompare2(PWM_TIM, value);
     TIM_SetCompare3(PWM_TIM, value);
 }
