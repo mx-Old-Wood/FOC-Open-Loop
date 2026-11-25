@@ -20,4 +20,7 @@ typedef enum
     ADC_CHANNEL_COUNT                                   // 通道总数
 } ADC_CHANNEL_ID;
 
+void AD_Init(void);
+int16_t AD_GetValue(ADC_CHANNEL_ID channel);
+
 #endif

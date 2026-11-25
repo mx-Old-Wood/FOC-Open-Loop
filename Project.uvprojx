@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware</IncludePath>
+              <IncludePath>.\Start;.\User;.\Library;.\System;.\Hardware;.\MotorFoc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -918,6 +918,21 @@
               <FileName>ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Hardware\ADC.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MotorFoc</GroupName>
+          <Files>
+            <File>
+              <FileName>FocMath.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MotorFoc\FocMath.c</FilePath>
+            </File>
+            <File>
+              <FileName>FocMath.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MotorFoc\FocMath.h</FilePath>
             </File>
           </Files>
         </Group>
