@@ -934,6 +934,16 @@
               <FileType>5</FileType>
               <FilePath>.\MotorFoc\FocMath.h</FilePath>
             </File>
+            <File>
+              <FileName>PID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MotorFoc\PID.c</FilePath>
+            </File>
+            <File>
+              <FileName>PID.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MotorFoc\PID.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
