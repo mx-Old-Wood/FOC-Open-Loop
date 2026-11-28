@@ -11,11 +11,9 @@
   
 void LED_Init(void)
 {
-	GPIO_InitTypeDef GPIO_InitStructure;
-	
-	RCC_AHB1PeriphClockCmd(LED_RCC, ENABLE); 
-	
+	RCC_AHB1PeriphClockCmd(LED_GPIO_RCC, ENABLE); 
 
+	GPIO_InitTypeDef GPIO_InitStructure;
 	GPIO_InitStructure.GPIO_Pin = LED_PIN_BLUE | LED_PIN_GREEN | LED_PIN_RED;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;

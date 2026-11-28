@@ -1,7 +1,7 @@
 #ifndef __LED_H__
 #define __LED_H__
 
-#define LED_RCC         RCC_AHB1Periph_GPIOD            // LED使用的GPIO时钟
+#define LED_GPIO_RCC    RCC_AHB1Periph_GPIOD            // LED使用的GPIO时钟
 #define LED_PORT        GPIOD                           // LED使用的GPIO端口
 #define LED_PIN_BLUE    GPIO_Pin_11                     // 蓝色LED引脚
 #define LED_PIN_GREEN   GPIO_Pin_12                     // 绿色LED引脚

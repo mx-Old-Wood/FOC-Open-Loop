@@ -1,5 +1,6 @@
 #include "stm32f4xx.h"
 #include "FocMath.h"
+#include "Encoder.h"
 #include "Delay.h"
 #include "VOFA.h"
 #include "LED.h"
@@ -32,6 +33,7 @@ int main(void)
 	LED_Init();				//初始化LED
 	//PWM_Init();				//初始化PWM
 	AD_Init();				//初始化ADC
+    Encoder_Init();
 
 	float data[14] = {0};
 	uint32_t tick = 0;
@@ -74,15 +76,21 @@ int main(void)
 			pi_iq.actual = iq_feedback + (sim_ts / sim_l) * (vq_applied - sim_r * iq_feedback);
 		}
 
-        data[0] = pi_id.set;
-        data[1] = id_feedback;
-        data[2] = pi_iq.set;
-		data[3] = iq_feedback;
-		data[4] = pi_id.out;
-		data[5] = pi_iq.out;
-		data[6] = (float)valid;
-		data[7] = (float)test_step * sim_ts;
-		VOFA(data, 8);
+		const int32_t count = (int32_t)Encoder_GetCount;
+
+		data[0] = (float)count;
+		data[1] = (float)(count - 32768);
+		VOFA(data, 2);
+
+        // data[0] = pi_id.set;
+        // data[1] = id_feedback;
+        // data[2] = pi_iq.set;
+		// data[3] = iq_feedback;
+		// data[4] = pi_id.out;
+		// data[5] = pi_iq.out;
+		// data[6] = (float)valid;
+		// data[7] = (float)test_step * sim_ts;
+		// VOFA(data, 8);
 
 		++test_step;
 

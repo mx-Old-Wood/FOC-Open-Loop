@@ -38,6 +38,22 @@ typedef struct
     uint8_t Acc;                    				    //每键独立的连发加速计数
 } KEYS;
 
+static KEYS Key[KEY_COUNT];                             //按键结构体数组
+typedef struct
+{
+    uint32_t GPIO_RCC;
+    GPIO_TypeDef *GPIO_Port;
+    uint32_t GPIO_Pin;
+} Key_GPIO;
+
+static const Key_GPIO Key_GPIO_List[KEY_COUNT] = 
+{
+    [KEY1] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_12},
+    [KEY2] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_13},
+    [KEY3] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_14},
+    [KEY_POWER] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_11},
+};
+
 void Key_Init(void);
 uint8_t Key_Check(uint8_t KeyIdx, uint8_t Flag);
 void Key_Clear(void);

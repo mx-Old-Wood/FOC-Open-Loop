@@ -1,23 +1,6 @@
 #include "stm32f4xx.h"                  // Device header
 #include "Key.h"
 
-static KEYS Key[KEY_COUNT];             //按键结构体数组
-
-typedef struct
-{
-    uint32_t GPIO_RCC;
-    GPIO_TypeDef *GPIO_Port;
-    uint32_t GPIO_Pin;
-} Key_GPIO;
-
-static const Key_GPIO Key_GPIO_List[KEY_COUNT] = 
-{
-    [KEY1] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_12},
-    [KEY2] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_13},
-    [KEY3] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_14},
-    [KEY_POWER] = {RCC_AHB1Periph_GPIOB, GPIOB, GPIO_Pin_11},
-};
-
 void Key_Init(void)
 {
     uint32_t GPIO_Rcc = 0;
